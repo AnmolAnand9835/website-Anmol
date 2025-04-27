@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Awesome Website</title>
+
+  <!-- CSS Styling -->
+  <style>
+    :root {
+      --main-bg: #f0f8ff;
+      --text-color: #333;
+      --button-bg: #28a745;
+      --button-hover: #218838;
+      --card-bg: #ffffff;
+      --card-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text-color);
+      padding: 20px;
+      text-align: center;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    h1 {
+      color: #005f99;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    /* Image styling */
+    img {
+      width: 180px;
+      /* Fixed width of 180px */
+      height: 180px;
+      /* Fixed height of 180px */
+      border-radius: 10px;
+      margin: 10px auto;
+      display: block;
+      border: 3px solid #0077cc;
+      box-shadow: 0 4px 8px var(--card-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      object-fit: contain;
+      /* Changed from cover to contain to show full image */
+    }
+
+    img:hover {
+      transform: scale(1.1);
+      /* Slight zoom effect */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    /* Button styling */
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: var(--button-bg);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 12px 8px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: var(--button-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Text styling */
+    .my-text {
+      font-size: 22px;
+      font-weight: bold;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Dark mode */
+    .dark-mode {
+      --main-bg: #1c1c1c;
+      --text-color: #f1f1f1;
+      --button-bg: #444;
+      --button-hover: #666;
+      --card-bg: #2c2c2c;
+      --card-shadow: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Modal for enlarged images */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      /* Limit the max width to avoid large images overflowing */
+      max-height: 80vh;
+      /* Limit the max height of the modal image */
+      border-radius: 12px;
+      object-fit: contain;
+      /* Maintain aspect ratio */
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+
+  <!-- JavaScript -->
+  <script>
+    // Show welcome message smoothly
+    window.onload = function () {
+      setTimeout(() => {
+        alert("👋 Welcome to my awesome website!");
+      }, 500);
+    };
+
+    // Open brother's website in new tab
+    function visitWebsite() {
+      alert("Redirecting you to my brother's site...");
+      window.open("http://anmolanand9835.github.io/Adarsh/", "_blank");
+    }
+
+    // Toggle dark mode with emoji
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    // Image modal viewer
+    function openModal(src) {
+      const modal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImg.src = src;
+    }
+
+    function closeModal() {
+      document.getElementById("imgModal").style.display = "none";
+    }
+  </script>
+</head>
+
+<body>
+  <h1>🌍 My First Website</h1>
+  <p class="my-text">Hi, hello world! This is my first website.</p>
+
+  <h2>Tani</h2>
+  <p>This is my sister without filter:</p>
+  <a href="IMG-20250426-WA0000.jpg" target="_blank">
+    <img src="IMG-20250426-WA0000.jpg" alt="Sister without filter" onclick="openModal(this.src)">
+  </a>
+
+  <p>My sister with filter:</p>
+  <a href="file_00000000ce8061f7adb8410ba57a6171 (1).png" target="_blank">
+    <img src="file_00000000ce8061f7adb8410ba57a6171 (1).png" alt="Sister with filter" onclick="openModal(this.src)">
+  </a>
+
+  <p>My sister with filter:</p>
+  <a href="IMG-20250426-WA0002.jpg" target="_blank">
+    <img src="IMG-20250426-WA0002.jpg" alt="Sister with filter" onclick="openModal(this.src)">
+  </a>
+
+  <p>My sister with filter:</p>
+  <a href="IMG-20250426-WA0001.jpg" target="_blank">
+    <img src="IMG-20250426-WA0001.jpg" alt="Sister with filter" onclick="openModal(this.src)">
+  </a>
+
+  <hr>
+  <h2>Myself</h2>
+  <p>This is my photo:</p>
+  <a href="IMG-20250426-WA0008.jpg" target="_blank">
+    <img src="IMG-20250426-WA0008.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <p>This is my photo:</p>
+  <a href="IMG-20250426-WA0006.jpg" target="_blank">
+    <img src="IMG-20250426-WA0006.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <p>This is my photo:</p>
+  <a href="IMG-20250426-WA0005.jpg" target="_blank">
+    <img src="IMG-20250426-WA0005.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <p>This is my photo:</p>
+  <a href="IMG_20231229_194151_852.jpg" target="_blank">
+    <img src="IMG_20231229_194151_852.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+  <p>This is my photo:</p>
+  <a href="Screenshot_20250405_121220.jpg" target="_blank">
+    <img src="Screenshot_20250405_121220.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <p>This is my photo:</p>
+  <a href="Screenshot_20250425_213028.jpg" target="_blank">
+    <img src="Screenshot_20250425_213028.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <p>This is my photo:</p>
+  <a href="IMG-20250426-WA0009.jpg" target="_blank">
+    <img src="IMG-20250426-WA0009.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <p>This is my photo:</p>
+  <a href="IMG-20250426-WA0008.jpg" target="_blank">
+    <img src="IMG-20250426-WA0008.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <p>This is my photo:</p>
+  <a href="file_000000009a1061f782af3f66f81907e6_conversation_id=680c0f36-3550-8004-9ab7-02ab5d06a460&message_id=c9990149-970f-414c-a542-6c20817bde80.PNG"
+    target="_blank">
+    <img
+      src="file_000000009a1061f782af3f66f81907e6_conversation_id=680c0f36-3550-8004-9ab7-02ab5d06a460&message_id=c9990149-970f-414c-a542-6c20817bde80.PNG"
+      alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <hr>
+  <h2>Anmol</h2>
+  <p>Photo of me and my friend(GunGun):</p>
+  <a href="IMG-20250419-WA0006.jpg" target="_blank">
+    <img src="IMG-20250419-WA0006.jpg" alt="Heartbroken friends" onclick="openModal(this.src)">
+  </a>
+  <p>TPhoto of me and my friend(GunGun) gibli style: </p>
+  <a href="Heart touching.jpg" target="_blank">
+    <img src="Heart touching.jpg" alt="Sister without filter" onclick="openModal(this.src)">
+  </a>
+  <hr>
+  <h2>Dogs</h2>
+  <p>Me with my friend Rozi:</p>
+  <a href="image.jpg" target="_blank">
+    <img src="image.jpg" alt="Me and Rozi" onclick="openModal(this.src)">
+  </a>
+
+  <p>My lovely friend Rozi:</p>
+  <a href="image-1.jpg" target="_blank">
+    <img src="image-1.jpg" alt="Rozi" onclick="openModal(this.src)">
+  </a>
+
+  <p>My best friend Shiro (Lemon's dog):</p>
+  <a href="IMG-20250117-WA0005.jpg" target="_blank">
+    <img src="IMG-20250117-WA0005.jpg" alt="Dog named Shiro" onclick="openModal(this.src)">
+  </a>
+  <hr>
+  <h2>Bhuker sister Giya</h2>
+
+  <p>My sister at a restaurant (super hungry):</p>
+  <a href="IMG-20250217-WA0004.jpg" target="_blank">
+    <img src="IMG-20250217-WA0004.jpg" alt="Hungry sister" onclick="openModal(this.src)">
+  </a>
+
+  <p>My sister at a restaurant (super hungry):</p>
+  <a href="Screenshot_20240716_173348.jpg" target="_blank">
+    <img src="Screenshot_20240716_173348.jpg" alt="Hungry sister" onclick="openModal(this.src)">
+  </a>
+
+  <p>Me with family at the restaurant with my hungry sister:</p>
+  <a href="IMG-20250217-WA0008.jpg" target="_blank">
+    <img src="IMG-20250217-WA0008.jpg" alt="Family dinner" onclick="openModal(this.src)">
+  </a>
+  <hr>
+  <H2>2 take ka hisedar</H2>
+
+  <p>This is my brother Anmol Anand — my website partner:</p>
+  <a href="IMG-20250112-WA0003.jpg" target="_blank">
+    <img src="IMG-20250112-WA0003.jpg" alt="Brother Anmol" onclick="openModal(this.src)">
+  </a>
+
+  <p>Wanna visit Anmol's website?</p>
+  <button onclick="visitWebsite()">Visit Anmol Pro 🚀</button>
+
+  <hr>
+  <h2>My Bro</h2>
+
+  <p>Two crazy bros — Raidem and Neel 🤪:</p>
+  <a href="1715282636680.jpg" target="_blank">
+    <img src="1715282636680.jpg" alt="Raidem and Neel" onclick="openModal(this.src)">
+  </a>
+  <p>Two crazy bros — Raidem and Neel 🤪:</p>
+  <a href="Screenshot_20240524_000758.jpg" target="_blank">
+    <img src="Screenshot_20240524_000758.jpg" alt="Raidem and Neel" onclick="openModal(this.src)">
+  </a>
+
+  <p>This is my photo:</p>
+  <a href="IMG-20250426-WA0008.jpg" target="_blank">
+    <img src="IMG-20250426-WA0008.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <p>This is my photo:</p>
+  <a href="IMG-20250426-WA0004.jpg" target="_blank">
+    <img src="IMG-20250426-WA0004.jpg" alt="Me" onclick="openModal(this.src)">
+  </a>
+
+  <hr>
+  <p>Want to visit my brother's website again?</p>
+  <button onclick="visitWebsite()">Visit Anmol Pro 🚀</button>
+
+  <p>Switch between light and dark mode?</p>
+  <button onclick="toggleDarkMode()">Toggle Dark Mode 🌙</button>
+
+  <!-- Modal for image enlargement -->
+  <div id="imgModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Enlarged view">
+  </div>
+</body>
+
+</html>
